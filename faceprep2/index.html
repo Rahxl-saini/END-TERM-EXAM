@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navigation Bar</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background: #172033;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background: #007bff;
+        }
+
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 28px;
+            cursor: pointer;
+        }
+
+        main {
+            padding: 40px 20px;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+        }
+
+        /* Mobile Responsive */
+
+        @media screen and (max-width: 600px) {
+
+            header {
+                flex-wrap: wrap;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                margin-top: 15px;
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            nav a {
+                padding: 18px;
+                border-top: 1px solid #444;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+
+        <div class="logo">MyShop</div>
+
+        <button class="menu-btn" onclick="toggleMenu()">
+            &#9776;
+        </button>
+
+        <nav id="menu">
+            <a href="#">Home</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+        </nav>
+
+    </header>
+
+    <main>
+        <h1>Welcome to MyShop</h1>
+
+        <p>
+            Resize the browser window to see the menu change.
+        </p>
+    </main>
+
+    <script>
+        function toggleMenu() {
+
+            let menu = document.getElementById("menu");
+
+            menu.classList.toggle("open");
+
+        }
+    </script>
+
+</body>
+</html>
